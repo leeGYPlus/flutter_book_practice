@@ -19,6 +19,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_webview_plugin: ^0.3.9+1
+  date_format: ^1.0.8
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -40,6 +42,30 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - images/loading.jpeg
+  # 底部 tab 切换图片资源
+    - images/contact_list_normal.png
+    - images/contact_list_pressed.png
+    - images/profile_normal.png
+    - images/profile_pressed.png
+    - images/message_normal.png
+    - images/message_pressed.png
+#    菜单按钮
+    - images/icon_menu_addfriend.png
+    - images/icon_menu_group.png
+#   好友模块
+    - images/icon_addfriend.png
+    - images/icon_groupchat.png
+    - images/icon_public.png
+    - images/icon_me_friends.png
+    - images/icon_me_photo.png
+    - images/icon_me_file.png
+    - images/icon_me_service.png
+    - images/icon_me_message.png
+    - images/icon_me_clear.png
+    - images/code.png
+    - images/yixiu.jpeg
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
