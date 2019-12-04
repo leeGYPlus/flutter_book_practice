@@ -5,11 +5,10 @@ class Personal extends StatelessWidget{
   Widget build(BuildContext context) {
 
     return new MaterialApp(
-      home: new Scaffold(
-        appBar: AppBar(
-          title: Text("Personal"),
-        ),
-      ),
+      home: Center(
+
+        child: Text("Personal"),
+      )
     );
   }
 

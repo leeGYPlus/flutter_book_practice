@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './chat/message_page.dart';
 import './contacts/contacts.dart';
 import './personal/personal.dart';
+import './utils/lists.dart';
 
 class App extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class _AppState extends State<App> {
   Contacts contacts;
   Personal personal;
 
+  // 选中的页面
   currentPage() {
     switch (_currentIndex) {
       case 0:
@@ -28,7 +30,7 @@ class _AppState extends State<App> {
           contacts = Contacts();
         }
         return contacts;
-      case 1:
+      case 2:
         if (personal == null) {
           personal = Personal();
         }
@@ -88,9 +90,9 @@ class _AppState extends State<App> {
                     position: RelativeRect.fromLTRB(500.0, 76.0, 10.0, 10.0),
                     items: <PopupMenuEntry>[
                       _popupMenuItem('发起会话',
-                          imagePath: 'images/icn_menu_group.png'),
+                          imagePath: 'images/icon_menu_group.png'),
                       _popupMenuItem('添加好友',
-                          imagePath: 'images/icn_menu_add_friends.png'),
+                          imagePath: 'images/icon_menu_addfriend.png'),
                       _popupMenuItem('联系客服', icon: Icons.people),
                     ]);
               },
@@ -107,56 +109,8 @@ class _AppState extends State<App> {
             _currentIndex = index;
           });
         },
-        items: [
-          BottomNavigationBarItem(
-              title: Text(
-                "聊天",
-                style: TextStyle(
-                    color: _currentIndex == 0
-                        ? Color(0xFF46c01b)
-                        : Color(0xff999999)),
-              ),
-              icon: _currentIndex == 0
-                  ? Image.asset('images/message_pressed.png',
-                      width: 32.0, height: 28.0)
-                  : Image.asset(
-                      'images/message_normal.png',
-                      width: 32.0,
-                      height: 28.0,
-                    )),
-          BottomNavigationBarItem(
-              title: Text(
-                "好友",
-                style: TextStyle(
-                    color: _currentIndex == 1
-                        ? Color(0xFF46c01b)
-                        : Color(0xff999999)),
-              ),
-              icon: _currentIndex == 1
-                  ? Image.asset('images/contact_list_pressed.png',
-                      width: 32.0, height: 28.0)
-                  : Image.asset(
-                      'images/contact_list_normal.png',
-                      width: 32.0,
-                      height: 28.0,
-                    )),
-          BottomNavigationBarItem(
-              title: Text(
-                "我的",
-                style: TextStyle(
-                    color: _currentIndex == 2
-                        ? Color(0xFF46c01b)
-                        : Color(0xff999999)),
-              ),
-              icon: _currentIndex == 2
-                  ? Image.asset('images/profile_pressed.png',
-                      width: 32.0, height: 28.0)
-                  : Image.asset(
-                      'images/profile_normal.png',
-                      width: 32.0,
-                      height: 28.0,
-                    ))
-        ],
+        items: createBottomNavigationBarItemList(_currentIndex)
+        ,
       ),
       body: currentPage(),
     );
