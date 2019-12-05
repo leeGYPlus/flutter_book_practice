@@ -48,24 +48,19 @@ class MessageItem extends StatelessWidget {
                   Text(
                     messageData.subTitle,
                     maxLines: 1,
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      color: Color(0xffa9a9a9)
-                    ),
+                    style: TextStyle(fontSize: 14.0, color: Color(0xffa9a9a9)),
                     overflow: TextOverflow.ellipsis,
                   )
                 ],
-              ) ,
+              ),
             ),
             Container(
               alignment: AlignmentDirectional.topStart,
-              margin: const EdgeInsets.only(right: 12.0,left: 18.0),
+              margin: const EdgeInsets.only(top: 8.0, right: 12.0, left: 18.0),
               child: Text(
-                formatDate(messageData.time, [HH,':',nn,':','ss']).toString(),
-                style: TextStyle(
-                  fontSize: 14.0,
-                  color: Color(0xffa9a9a9)
-                ),
+                formatDate(messageData.time, [HH, ':', nn, ':', 'ss'])
+                    .toString(),
+                style: TextStyle(fontSize: 14.0, color: Color(0xffa9a9a9)),
               ),
             )
           ],
