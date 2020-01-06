@@ -9,8 +9,9 @@ class Mate {
 
 class Item extends Mate {
   Item(String name, price) : super(name, price);
+
   // 重载 + 运算符
-  Item operator +(Item item) => Item(name + item.name,price + item.price);
+  Item operator +(Item item) => Item(name + item.name, price + item.price);
 }
 
 class ShopCart extends Mate {
@@ -27,11 +28,19 @@ class ShopCart extends Mate {
 //    return sum;
 //  }
   //reduce 的参数为函数
-  double get price => bookings.reduce((value, element)=>value + element).price;
-
+  double get price =>
+      bookings.reduce((value, element) => value + element).price;
 
   // 在真正执行构造函数之前可以对成员变量进行赋值
-  ShopCart(name, this.code)
+//  ShopCart({name})
+//      : date = DateTime.now(),
+//        super(name, 0);
+
+  //默认初始化方法，转发到withCode里
+  ShopCart({name}) : this.withCode(name: name, code: null);
+
+  //withCode初始化方法，使用语法糖和初始化列表进行赋值，并调用父类初始化方法
+  ShopCart.withCode({name, this.code})
       : date = DateTime.now(),
         super(name, 0);
 
@@ -39,16 +48,20 @@ class ShopCart extends Mate {
     return """   购物信息：
                  ----------- 
                  用户名：$name
-                 优惠码：$code
-                 总计：${price.toString()}
-                 日期：${date.toString()}
+                 优惠码：${code ?? "没有"}
+                 总计：$price
+                 日期：$date
                  -----------
     """;
   }
 }
 
 main() {
-  ShopCart shopCart = new ShopCart('Mike', '235434453');
+  ShopCart shopCart = new ShopCart.withCode(name: 'Mike', code: '235434453');
   shopCart.bookings = [Item('apple', 12.0), Item('banana', 34.0)];
   print('${shopCart.getInfo()}');
+
+  ShopCart shopCart2 = ShopCart(name: "Tom");
+  shopCart2.bookings = [Item('西瓜', 23.0), Item('栗子', 30.0)];
+  print('${shopCart2.getInfo()}');
 }
