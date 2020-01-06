@@ -1,6 +1,5 @@
-
-
 import 'Utils.dart';
+
 class Mate {
   double price;
   String name;
@@ -15,7 +14,7 @@ class Item extends Mate {
   Item operator +(Item item) => Item(name + item.name, price + item.price);
 }
 
-class ShopCart extends Mate with PrinterHelper{
+class ShopCart extends Mate with PrinterHelper {
   DateTime date;
   String code;
   List<Item> bookings;
@@ -45,9 +44,6 @@ class ShopCart extends Mate with PrinterHelper{
       : date = DateTime.now(),
         super(name, 0);
 
-
-
-
   @override
   getInfo() {
     return """   购物信息：
@@ -60,13 +56,12 @@ class ShopCart extends Mate with PrinterHelper{
     """;
   }
 }
-
 main() {
-  ShopCart shopCart = new ShopCart.withCode(name: 'Mike', code: '235434453');
-  shopCart.bookings = [Item('apple', 12.0), Item('banana', 34.0)];
-  print('${shopCart.printInfo()}');
+  ShopCart.withCode(name: 'Mike', code: '235434453')
+    ..bookings = [Item('apple', 12.0), Item('banana', 34.0)]
+    ..printInfo();
 
-  ShopCart shopCart2 = ShopCart(name: "Tom");
-  shopCart2.bookings = [Item('西瓜', 23.0), Item('栗子', 30.0)];
-  print('${shopCart2.printInfo()}');
+  ShopCart(name: "Tom")
+    ..bookings = [Item('西瓜', 23.0), Item('栗子', 30.0)]
+    ..printInfo();
 }
