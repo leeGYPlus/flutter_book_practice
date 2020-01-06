@@ -16,6 +16,7 @@ class ShopCart extends Mate {
   String code;
   List<Item> bookings;
 
+  // 将原来的 price() 方法改造成 price 属性的 get 方法
   double get price {
     double sum = 0.0;
     for (var item in bookings) {
@@ -23,6 +24,7 @@ class ShopCart extends Mate {
     }
     return sum;
   }
+
 
   // 在真正执行构造函数之前可以对成员变量进行赋值
   ShopCart(name, this.code)
@@ -34,7 +36,7 @@ class ShopCart extends Mate {
                  ----------- 
                  用户名：$name
                  优惠码：$code
-                 总计：${price().toString()}
+                 总计：${price.toString()}
                  日期：${date.toString()}
                  -----------
     """;
