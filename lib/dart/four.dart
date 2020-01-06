@@ -1,19 +1,22 @@
 import 'package:date_format/date_format.dart';
 
-class Item {
+class Mate {
   double price;
   String name;
 
-  Item(this.name, this.price);
+  Mate(this.name, this.price);
 }
 
-class ShopCart {
-  String name;
+class Item extends Mate {
+  Item(String name, price) : super(name, price);
+}
+
+class ShopCart extends Mate {
   DateTime date;
   String code;
   List<Item> bookings;
 
-  price() {
+  double get price {
     double sum = 0.0;
     for (var item in bookings) {
       sum += item.price;
@@ -21,11 +24,10 @@ class ShopCart {
     return sum;
   }
 
-  ShopCart(name, code) {
-    this.name = name;
-    this.code = code;
-    this.date = DateTime.now();
-  }
+  // 在真正执行构造函数之前可以对成员变量进行赋值
+  ShopCart(name, this.code)
+      : date = DateTime.now(),
+        super(name, 0);
 
   getInfo() {
     return """   购物信息：
