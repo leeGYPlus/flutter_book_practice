@@ -42,19 +42,26 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #  - images/a_dot_burr.jpeg
+  #  - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
   assets:
     - images/loading.jpeg
-  # 底部 tab 切换图片资源
+    # 底部 tab 切换图片资源
     - images/contact_list_normal.png
     - images/contact_list_pressed.png
     - images/profile_normal.png
     - images/profile_pressed.png
     - images/message_normal.png
     - images/message_pressed.png
-#    菜单按钮
+    #    菜单按钮
     - images/icon_menu_addfriend.png
     - images/icon_menu_group.png
-#   好友模块
+  #   好友模块
     - images/icon_addfriend.png
     - images/icon_groupchat.png
     - images/icon_public.png
@@ -66,13 +73,6 @@ flutter:
     - images/icon_me_clear.png
     - images/code.png
     - images/yixiu.jpeg
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #  - images/a_dot_burr.jpeg
-  #  - images/a_dot_ham.jpeg
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware.
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages

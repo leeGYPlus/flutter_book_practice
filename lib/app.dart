@@ -16,6 +16,41 @@ class _AppState extends State<App> {
   Contacts contacts;
   Personal personal;
 
+  _AppState(){
+    print('_AppState');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    print('initState');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('didChangeDependencies');
+  }
+
+  @override
+  void didUpdateWidget(App oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print('didUpdateWidget');
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    print('deactivate');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('dispose');
+  }
+
+
   // 选中的页面
   currentPage() {
     switch (_currentIndex) {
